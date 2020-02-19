@@ -18,8 +18,7 @@ def recipe_batches(recipe, ingredients):
             else:
                 proportion = math.floor(ingredients[k] / recipe[k])
                 lowest_proportion.append(proportion)
-        lowest_proportion.sort()
-        return lowest_proportion[0]
+        return min(lowest_proportion)
     except KeyError:
         return 0
 
