@@ -13,25 +13,19 @@ def eating_cookies(n, cache=None):
     # then reduce the number of cookies sequentially by adding more eating times if needed to reach n i.e. n = 9 3,2,3,1 or 2,3,3,1
     # add each combination as a list inside the list as we go.
     # return number of items in the list
-    if n == 3:
-        return 4
-    elif n == 2:
+    if n == 2:
         return 2
-    elif n == 1:
+    elif n < 2:
         return 1
-    elif n == 0:
-        return 1
-    elif n < 0:
-        return 0
     return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
 
 
-# if __name__ == "__main__":
-#     if len(sys.argv) > 1:
-#         num_cookies = int(sys.argv[1])
-#         print("There are {ways} ways for Cookie Monster to eat {n} cookies.".format(
-#             ways=eating_cookies(num_cookies), n=num_cookies))
-#     else:
-#         print('Usage: eating_cookies.py [num_cookies]')
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        num_cookies = int(sys.argv[1])
+        print("There are {ways} ways for Cookie Monster to eat {n} cookies.".format(
+            ways=eating_cookies(num_cookies), n=num_cookies))
+    else:
+        print('Usage: eating_cookies.py [num_cookies]')
 
-print(eating_cookies(5))
+# print(eating_cookies(5))
