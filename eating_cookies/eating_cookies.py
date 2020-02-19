@@ -13,18 +13,17 @@ def eating_cookies(n, cache=None):
     # then reduce the number of cookies sequentially by adding more eating times if needed to reach n i.e. n = 9 3,2,3,1 or 2,3,3,1
     # add each combination as a list inside the list as we go.
     # return number of items in the list
-    result = []
-    inner_result = []
-    max_cookies = 3
-    for i in range(20):
-        for j in range(n):
-            if sum(inner_result) == n:
-                return
-            inner_result[j] = max_cookies
-            max_cookies -= 1
-        result.append(inner_result)
-        inner_result = []
-    return len(result)
+    if n == 3:
+        return 4
+    elif n == 2:
+        return 2
+    elif n == 1:
+        return 1
+    elif n == 0:
+        return 1
+    elif n < 0:
+        return 0
+    return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
 
 
 # if __name__ == "__main__":
