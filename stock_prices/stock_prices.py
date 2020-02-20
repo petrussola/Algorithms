@@ -15,12 +15,12 @@ def find_max_profit(prices):
     # if 2nd price examined is lower, we will ignore because we need to sell at a gain
     if len(prices) < 2:
         return "Sorry buddy, need two prices in order to buy and sell."
-    biggest_difference_so_far = []
+    biggest_difference_so_far = 0
     for i in range(len(prices)):
         for j in range(i + 1, len(prices)):
             if prices[j] != prices[i] and (prices[j] - prices[i]) > biggest_difference_so_far:
-                biggest_difference_so_far.append = prices[j] - prices[i]
-    return max(biggest_difference_so_far)
+                biggest_difference_so_far = prices[j] - prices[i]
+    return biggest_difference_so_far
 
 
 if __name__ == '__main__':
